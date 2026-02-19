@@ -33,12 +33,15 @@ void setup() {
  * @brief Demonstrates digital ON/OFF and PWM brightness control for RGB LED.
  */
 void loop() {
+        // Digital mode demo
+        digitalWrite(RED_PIN, HIGH);
+        delay(450);
+        digitalWrite(RED_PIN, LOW);
 
-    // -------- DIGITAL MODE --------
-    digitalWrite(RED_PIN, HIGH);   // Turn ON red
-    delay(500);
-    digitalWrite(RED_PIN, LOW);    // Turn OFF red
-    delay(400);
+        digitalWrite(GREEN_PIN, HIGH);
+        delay(450);
+        digitalWrite(GREEN_PIN, LOW);
+    }
 
     // -------- ANALOG (PWM) MODE --------
     analogWrite(RED_PIN, 120);     // RED brightness
