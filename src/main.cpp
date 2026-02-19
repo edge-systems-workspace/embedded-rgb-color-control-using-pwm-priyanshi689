@@ -1,57 +1,48 @@
 #include <Arduino.h>
+
 /**
  * @file main.cpp
  * @brief Embedded RGB LED Control (Digital + PWM)
- * @author YOUR_NAME
- * @date YYYY-MM-DD
+ * @author Priyanshi
+ * @date 19-02-2026
  *
  * @details
  * Controls RGB LED using digital ON/OFF
  * and analog PWM brightness control.
  */
 
- // TODO 1:
- // Define RED pin (Use 9)
+// Define RGB pins
+#define RED_PIN   9
+#define GREEN_PIN 10
+#define BLUE_PIN  11
 
- // TODO 2:
- // Define GREEN pin (Use 10)
-
- // TODO 3:
- // Define BLUE pin (Use 11)
-
+/**
+ * @brief Initializes serial communication and configures RGB pins.
+ */
 void setup() {
+    Serial.begin(9600);
 
-    // TODO 4:
-    // Initialize Serial communication (9600 baud)
+    pinMode(RED_PIN, OUTPUT);
+    pinMode(GREEN_PIN, OUTPUT);
+    pinMode(BLUE_PIN, OUTPUT);
 
-    // TODO 5:
-    // Configure RGB pins as OUTPUT
-
-    // TODO 6:
-    // Print initialization message
+    Serial.println("RGB LED initialized (Digital + PWM demo)");
 }
 
+/**
+ * @brief Demonstrates digital ON/OFF and PWM brightness control for RGB LED.
+ */
 void loop() {
 
     // -------- DIGITAL MODE --------
-
-    // TODO 7:
-    // Turn ON red (digital HIGH)
-
-    // TODO 8:
-    // Turn OFF red
+    digitalWrite(RED_PIN, HIGH);   // Turn ON red
+    delay(500);
+    digitalWrite(RED_PIN, LOW);    // Turn OFF red
+    delay(500);
 
     // -------- ANALOG (PWM) MODE --------
-
-    // TODO 9:
-    // Set RED brightness using analogWrite()
-
-    // TODO 10:
-    // Set GREEN brightness using analogWrite()
-
-    // TODO 11:
-    // Set BLUE brightness using analogWrite()
-
-    // TODO 12:
-    // Add delay for visible transition
+    analogWrite(RED_PIN, 120);     // RED brightness
+    analogWrite(GREEN_PIN, 60);    // GREEN brightness
+    analogWrite(BLUE_PIN, 180);    // BLUE brightness
+    delay(1000);
 }
